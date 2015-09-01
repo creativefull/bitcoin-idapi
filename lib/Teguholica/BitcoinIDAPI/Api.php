@@ -34,19 +34,24 @@ class Api extends ApiNoKey
         return $this->funds;
     }
 
-    public function orderTrade($pair, $type, $rate, $amount)
+    public function orderTrade($pair, $type, $amount, $price)
     {
         $data = array(
             'pair' => $pair,
             'type' => $type,
-            'rate' => $rate,
-            'amount' => $amount,
+            'price' => $price
         );
+
+        if($type == 'buy'){
+            $data['idr'] = $amount;
+        }else{
+            $data['btc'] = $amount;
+        }
 
         $response = $this->apiQuery('trade', $data);
 
         if ($response) {
-            return $response['order_id'];
+            return $response;
         }
 
         return null;
