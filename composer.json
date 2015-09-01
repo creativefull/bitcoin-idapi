@@ -1,0 +1,13 @@
+{
+    "name": "teguholica/bitcoinIDAPI",
+    "description": "Bitcoin.co.id API",
+    "authors": [
+        {
+            "name": "Teguh Arifianto",
+            "email": "teguholica@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": { "Teguholica\\BitcoinIDAPI": "lib" }
+    }
+}
